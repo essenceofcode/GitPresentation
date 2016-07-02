@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="A presentation on understanding the fundamentals of Git.">
+		<meta name="author" content="David B Wilson">
+
+		<title>Git Internals</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<a style="font-size:10pt" href="https://xkcd.com/1597/">https://xkcd.com/1597/</a><br>
+					<img src="images/gitxkcd.png"/><br>
+
+					<h3>Git Internals</h3>
+				</section>
+				<section>
+					<h3>David Wilson</h3>
+					<h4>Full stack code janitor</h4>
+					<ul style="list-style-type: none">
+						<li>Twitter | <a href="https://twitter.com/_davidbwilson">@_davidbwilson</a></li>
+						<li>Blog | <a href="http://essenceofcode.com">essenceofcode.com</a></li>
+						<li>Email | <a href="mailto:dwilson@essenceofcode.com">dwilson@essenceofcode.com</a></li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/git.jpeg" style="border:0;box-shadow:none;" />
+					<h3>Understanding the Fundamentals</h3>
+					<ul>
+						<li>Fully leverage git</li>
+						<li>Prevent and fix problems</li>
+						<li>Be a super hero</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/surprise.jpeg" class="stretch" style="border:0;box-shadow:none;" />
+					<h3>Surprising things about git</h3>
+					<ul>
+						<li>Full snapshot on every commit</li>
+						<li>Repository content is guaranteed</li>
+						<li>The staging area is your friend</li>
+						<li>You can work off-line</li>
+					</ul>
+				</section>
+				<section>
+					<h3>What is git?</h3>
+					<blockquote>
+						Git is a free and open source distributed version control system designed to handle
+						everything from small to very large projects with speed and efficiency. - git-scm.com
+					</blockquote>
+				</section>
+				<section>
+					<h3>Sounds pretty cool, but what does this really mean?</h3>
+					<ul>
+						<li>Content tracking</li>
+						<li>History and versioning</li>
+						<li>Remote distribution</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Simple Content Tracking</h3>
+					<ul>
+						<li>Key / value content store</li>
+						<li>Provide data and get back a key</li>
+						<li>Objects in git are identified by SHA-1</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/encrypt.jpeg" class="stretch" style="border:0;box-shadow:none;" />
+					<h3>What is a SHA-1?</h3>
+					<ul>
+						<li>One-way cryptographic hashing algorithm</li>
+						<li>40 character hexadecimal value</li>
+						<li>Detects changes in content</li>
+						<li>Guarantees consistency</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Key Concepts</h3>
+					<h4>Object Types</h4>
+					<ul>
+						<li>Blobs - data</li>
+						<li>Trees - directory structure</li>
+						<li>Commits - meta-data for point-in-time snapshot</li>
+					</ul>
+					<br><br>
+					<h4>Reference Types</h4>
+					<ul>
+						<li>Tags - Fixed human readable references to commits</li>
+						<li>Branches - Dynamic references to commits</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/plumbing.jpeg" class="stretch" style="border:0;box-shadow:none;" />
+					<h3>Plumbing vs. Porcelain Commands</h3>
+					<ul>
+						<li>Porcelain commands are familiar (fetch, pull, merge...)</li>
+						<li>Plumbing commands are the low-level commands</li>
+						<li>Reviewing plumbing commands aids in understanding</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/Eight.png" style="border:0;box-shadow:none;" />
+					<h3>Directed Acyclic Graph (DAG)</h3>
+					<ul>
+						<li>Graphical pattern for object references in git</li>
+						<li><strong>D</strong>irected - Edges between objects are one direction
+						<li><strong>A</strong>cyclic - Never form a cycle or loop
+						<li><strong>G</strong>raph - Diagram showing relations</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Enough of the slides!</h3>
+					<h3>To the demo...  </h3>
+				</section>
+				<section>
+					<img src="images/One.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Two.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/vCQCKsTQkMY" frameborder="0" allowfullscreen></iframe>
+					<h3>Why a working directory and an index?</h3>
+					<li>Git is awesome!</li>
+					<li>Partial commit</li>
+					<li>Place to work outside of source control</li>
+				</section>
+				<section>
+					<img src="images/Two.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Three.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Four.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Five.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Six.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/branch.jpeg" class="stretch" style="border:0;box-shadow:none;" />
+					<h3>Branches</h3>
+					<ul>
+						<li>Just a pointer to a commit</li>
+						<li>Master is the default name</li>
+						<li>Head points to the current active branch</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/Seven.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Sixteen.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Nine.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Ten.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Eleven.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Twelve.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Thirteen.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Fourteen.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<img src="images/Fifteen.png" style="border:0;box-shadow:none;" />
+				</section>
+				<section>
+					<h3>Want to learn more?</h3>
+					<ul>
+						<li>Pro Git - by Scott Chacon; Ben Straub</li>
+						<li>How Git Works (PluralSight) by Paolo Perrotta</li>
+						<li>How Git Works (PluralSight) by Enrico Campidoglio</li>
+						<li><a href="http://think-like-a-git.net/">Think Like (a) Git</a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
