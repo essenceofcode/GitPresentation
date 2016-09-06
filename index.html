@@ -43,10 +43,11 @@
 				</section>
 				<section>
 					<img src="images/git.jpeg" style="border:0;box-shadow:none;" />
-					<h3>Understanding the Fundamentals</h3>
+					<h3>Why Understand the Fundamentals?</h3>
 					<ul>
 						<li>Fully leverage git</li>
 						<li>Prevent and fix problems</li>
+						<li>Work more efficiently</li>
 						<li>Be a super hero</li>
 					</ul>
 				</section>
@@ -57,7 +58,7 @@
 						<li>Full snapshot on every commit</li>
 						<li>Repository content is guaranteed</li>
 						<li>The staging area is your friend</li>
-						<li>You can work off-line</li>
+						<li>You can work completely disconnected</li>
 					</ul>
 				</section>
 				<section>
@@ -94,17 +95,18 @@
 					</ul>
 				</section>
 				<section>
-					<h3>Key Concepts</h3>
+					<h3>Key Elements</h3>
 					<h4>Object Types</h4>
 					<ul>
 						<li>Blobs - data</li>
 						<li>Trees - directory structure</li>
 						<li>Commits - meta-data for point-in-time snapshot</li>
+						<li>Annotated Tags - Fixed references to commits</li>
 					</ul>
 					<br><br>
 					<h4>Reference Types</h4>
 					<ul>
-						<li>Tags - Fixed human readable references to commits</li>
+						<li>Tags - Fixed references to commits</li>
 						<li>Branches - Dynamic references to commits</li>
 					</ul>
 				</section>
@@ -124,7 +126,7 @@
 						<li>Graphical pattern for object references in git</li>
 						<li><strong>D</strong>irected - Edges between objects are one direction
 						<li><strong>A</strong>cyclic - Never form a cycle or loop
-						<li><strong>G</strong>raph - Diagram showing relations</li>
+						<li><strong>G</strong>raph - Relationship diagram</li>
 					</ul>
 				</section>
 				<section>
@@ -138,7 +140,6 @@
 					<img src="images/Two.png" style="border:0;box-shadow:none;" />
 				</section>
 				<section>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/vCQCKsTQkMY" frameborder="0" allowfullscreen></iframe>
 					<h3>Why a working directory and an index?</h3>
 					<li>Git is awesome!</li>
 					<li>Partial commit</li>
@@ -161,11 +162,11 @@
 				</section>
 				<section>
 					<img src="images/branch.jpeg" class="stretch" style="border:0;box-shadow:none;" />
-					<h3>Branches</h3>
+					<h4>Branches</h4>
 					<ul>
-						<li>Just a pointer to a commit</li>
-						<li>Master is the default name</li>
-						<li>Head points to the current active branch</li>
+						<li>Allows for diverging work streams</li>
+						<li>Implemented as a simple pointer</li>
+						<li>Master => default / Head => active</li>
 					</ul>
 				</section>
 				<section>
@@ -188,12 +189,23 @@
 				</section>
 				<section>
 					<img src="images/Thirteen.png" style="border:0;box-shadow:none;" />
+					<h4>&nbsp; &nbsp; &nbsp; &nbsp; Standard Merge</h4>
 				</section>
 				<section>
 					<img src="images/Fourteen.png" style="border:0;box-shadow:none;" />
 				</section>
 				<section>
 					<img src="images/Fifteen.png" style="border:0;box-shadow:none;" />
+					<h4>&nbsp; &nbsp; &nbsp; &nbsp; Rebase</h4>
+				</section>
+				<section>
+					<h4>Rebase vs. Standard Merge</h4>
+					<ul>
+						<li>Rebase is flat and merge is accurate</li>
+						<li>Rebase handles conflicts in each commit</li>
+						<li>Rebase looks like a fast-forward</li>
+						<li>Important safety tip - don't rebase shared history</li>
+					</ul>
 				</section>
 				<section>
 					<h3>Want to learn more?</h3>
